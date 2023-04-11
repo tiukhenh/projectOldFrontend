@@ -7,6 +7,12 @@ const routes = [
         name: "home",
         component: Home,
     },
+    {
+        path: "/items/:id",
+        name: "item.edit",
+        component: () => import("@/views/ItemEdit.vue"),
+        props: true
+    },
 ];
 
 const router = createRouter({

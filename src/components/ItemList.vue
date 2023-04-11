@@ -18,12 +18,9 @@ export default {
     <table class="table mt-2">
         <thead class="backgound-violet text-white">
             <tr>
-            <th scope="col">ID</th>
             <th scope="col">Tên</th>
-            <th scope="col">Loại</th>
             <th scope="col">Màu sắc</th>
             <th scope="col">Giá</th>
-            <th scope="col">Tình trạng</th>
             </tr>
         </thead>
 
@@ -34,12 +31,9 @@ export default {
             @click="updateActiveIndex(index)"
         >
             <tr>
-            <th scope="row">{{  item._id }}</th>
             <td>{{  item.ten }}</td>
-            <td>{{  item.loai }}</td>
             <td>{{  item.mauSac }}</td>
             <td>{{  item.gia }}</td>
-            <td>{{  item.tinhTrang }}</td>
             </tr>
         </tbody>
     </table>

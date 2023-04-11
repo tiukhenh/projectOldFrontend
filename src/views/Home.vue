@@ -5,7 +5,7 @@
         </div> 
     </div>
     <div class="mt-2 row d-flex justify-content-around">
-        <div class="col-2 backgound-violet ">
+        <div class="col-2 backgound-violet rounded">
             <div class="card " >
                 <ul class="list-group list-group-flush justify-content-center m-2">
                     <li class="list-group-item"><a href="" class="text-center text-violet">Nhân viên </a></li>
@@ -30,13 +30,33 @@
                 </div>
             </div>
 
-            <div>
-                <ItemList 
-                v-if="filteredItemsCount > 0" 
-                :items="filteredItems" 
-                v-model:activeIndex="activeIndex" 
-                />
-                <p v-else>Không có liên hệ nào.</p>
+            <div class="row">
+                <div class="col-7">
+                    <ItemList 
+                    v-if="filteredItemsCount > 0" 
+                    :items="filteredItems" 
+                    v-model:activeIndex="activeIndex" 
+                    />
+                    <p v-else>Không có liên hệ nào.</p>    
+                </div>
+                <div class="col-5">
+                    <div v-if="activeItem">
+                    <h4 class="text-violet">
+                        Chi tiết Sản phẩm
+                    </h4>
+                    <ItemCard :item="activeItem" />
+                    <router-link 
+                        :to="{
+                        name: 'item.edit',
+                        params: { id: activeItem._id},
+                        }">
+                        <span class="mt-2 text-violet">
+                            Chỉnh sửa
+                            <i class="fas fa-edit "></i>
+                        </span>
+                    </router-link>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -45,12 +65,14 @@
 <script>
 import InputSearch from "@/components/InputSearch.vue";
 import ItemList from "@/components/ItemList.vue";
+import ItemCard from "@/components/ItemCard.vue";
 import ItemService from "@/services/item.service";
 
 export default {
     components: {
         InputSearch,
         ItemList,
+        ItemCard,
     },
     data() {
         return{
@@ -79,10 +101,10 @@ export default {
                 this.itemStrings[index].includes(this.searchText)
             );
         },
-        // activeItem() {
-        //     if (this.activeIndex <0) return null;
-        //     return this.filteredItems[this.activeIndex];
-        // },
+        activeItem() {
+            if (this.activeIndex <0) return null;
+            return this.filteredItems[this.activeIndex];
+        },
         filteredItemsCount() {
             return this.filteredItems.length;
         },

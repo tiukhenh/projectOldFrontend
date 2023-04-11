@@ -34,7 +34,7 @@ a,
   }
 } */
 .backgound-violet {
-  background: rgb(231, 138, 216);
+  background: rgb(202, 82, 182);
   padding: 6px;
 }
 .btn-outline-violet {
@@ -43,4 +43,9 @@ a,
 }
 .text-violet {
   color:rgb(166, 31, 144);
+}
+.btn-violet {
+  color: #fff;
+  background-color: #c314c0;
+  border-color: #830b73;
 }

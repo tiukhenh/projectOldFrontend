@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <div class="backgound-violet mt-2 mr-auto">
+        <div class="backgound-violet mt-2 mr-auto rounded">
             <div class="container">
                 <div class="row">
                     <div class="col col-md-5 text-white">
