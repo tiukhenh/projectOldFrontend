@@ -29,7 +29,11 @@
                     </div>
                 </div>
             </div>
-
+            <div>
+                <button class="btn btn-sm btn-violet mt-2" @click="goToAddItem">
+                    <i class="fas fa-plus"></i> Thêm mới sản phẩm
+                </button>
+            </div>
             <div class="row">
                 <div class="col-7">
                     <ItemList 
@@ -51,7 +55,7 @@
                         params: { id: activeItem._id},
                         }">
                         <span class="mt-2 text-violet">
-                            Chỉnh sửa
+                            Chỉnh sửa sản phẩm
                             <i class="fas fa-edit "></i>
                         </span>
                     </router-link>
@@ -120,6 +124,9 @@ export default {
         refreshList() {
             this.retrieveItems();
             this.activeIndex =-1;
+        },
+        goToAddItem() {
+            this.$router.push({name: "item.add"});
         },
     },
     mounted() {

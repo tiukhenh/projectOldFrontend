@@ -1,12 +1,15 @@
 <template>
     <div v-if="item">
-        <h4>Chỉnh sửa sản phẩm</h4>
-        <ItemForm
-            :item="item"
-            @submit:item="updateItem"
-            @delete:item="deleteItem"
-        />
-        <p>{{ message }}</p>
+        <div><a href="" @click="backHome"><i class="fas fa-angle-double-left text-violet mx-4 ml-2 "></i></a></div>
+        <div class="border border-violet rounded col-9 mx-auto">
+            <h4>Chỉnh sửa sản phẩm</h4>
+            <ItemForm
+                :item="item"
+                @submit:item="updateItem"
+                @delete:item="deleteItem"
+            />
+            <p>{{ message }}</p>
+        </div>
     </div>
 </template>
 <script>
@@ -60,6 +63,9 @@ export default {
                     console.log(error);
                 }
             }
+        },
+        backHome(){
+            this.$router.push({name: "home"});
         },
     },
     created() {

@@ -13,6 +13,12 @@ const routes = [
         component: () => import("@/views/ItemEdit.vue"),
         props: true
     },
+    {
+        path: "/items",
+        name: "item.add",
+        component: () => import("@/views/ItemAdd.vue"),
+        props: true
+    },
 ];
 
 const router = createRouter({
