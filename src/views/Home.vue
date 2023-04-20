@@ -1,4 +1,8 @@
 <template>
+    <!-- <div class="mt-3">
+      <router-link v-if="!$store.state.username" to="/login">Login</router-link>
+      <a href="" v-if="$store.state.username" @click="logout">Logout</a>
+    </div> -->
     <div class="row  d-flex justify-content-center">
         <div class="col-md-10">
             <InputSearch v-model="searchText" />
@@ -10,7 +14,7 @@
                 <ul class="list-group list-group-flush justify-content-center m-2">
                     <li class="list-group-item"><a href="" class="text-center text-violet">Nhân viên </a></li>
                     <li class="list-group-item"><a href="" class="text-center text-violet">Sản phẩm </a></li>
-                    <li class="list-group-item"><a href="" class="text-center text-violet">Đơn hàng </a></li>
+                    <li class="list-group-item"><a href="./bill" class="text-center text-violet">Đơn hàng </a></li>
                     <li class="list-group-item"><a href="" class="text-center text-violet">Doanh thu </a></li>
                 </ul>
             </div>
@@ -41,7 +45,7 @@
                     :items="filteredItems" 
                     v-model:activeIndex="activeIndex" 
                     />
-                    <p v-else>Không có liên hệ nào.</p>    
+                    <p v-else>Không có liên hệ nào.</p>   
                 </div>
                 <div class="col-5">
                     <div v-if="activeItem">
@@ -128,9 +132,16 @@ export default {
         goToAddItem() {
             this.$router.push({name: "item.add"});
         },
+        goToBill(){
+            this.$router.push({name: "bill"})
+        }
+        // logout(){
+        //     this.$store.commit('logout')
+        // }
     },
     mounted() {
         this.refreshList();
+        // this.$store.commit('initializeStore')
     },
 };
 </script>

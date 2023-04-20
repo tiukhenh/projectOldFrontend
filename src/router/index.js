@@ -19,6 +19,17 @@ const routes = [
         component: () => import("@/views/ItemAdd.vue"),
         props: true
     },
+    {
+        path: "/bill",
+        name: "bill",
+        component: () => import("@/views/Bill.vue"),
+    },
+
+    // {
+    //     path: "/login",
+    //     name: "login",
+    //     component: () => import("../views/Login.vue"),
+    // },
 ];
 
 const router = createRouter({

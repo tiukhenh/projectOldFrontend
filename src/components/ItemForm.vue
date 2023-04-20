@@ -49,7 +49,7 @@
                     name="tinhTrang"
                     type="checkbox"
                     class="form-check-input"
-                    v-model="itemLocaltinhTrang"
+                    v-model="itemLocal.tinhTrang"
                 />
                 <label for="tinhTrang" class="form-check-label">
                     <strong>Tình trạng</strong>
